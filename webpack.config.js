@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 //   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   /** Notes
    * Targeting our src/index.js and outputting the bundled file
    * in our dist folder
@@ -36,13 +36,17 @@ module.exports = {
    */
   devServer: {
     static: {
-      directory: path.resolve(__dirname, '/dist')
+      directory: path.resolve(__dirname, './src/index.js')
     },
-    port: 5000,
+    port: 3000,
     open: true,
-    hot: true,
     compress: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000'
+      }
+    }
   },
   /** Loaders
    * test: /\.scss$/ -> regex -> Any files that end with scss will apply these laoders
@@ -53,11 +57,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
