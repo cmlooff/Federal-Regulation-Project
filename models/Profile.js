@@ -20,13 +20,13 @@ const ProfileSchema = new mongoose.Schema({
   },
   title: {
     // This is where users will pick options of what kind of 'advocacy' they want to be. Lawyer, Advocate, Follower
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   interests: {
     // This is going to be where users input their interested regulation fields
-    type: [String],
-    required: true
+    type: [String]
+    // required: true
   },
   bio: {
     type: String

@@ -13,13 +13,6 @@ connectDB();
  */
 app.use(express.json());
 
-app.get('/api', (req, res) =>
-  res.json({
-    success: true,
-    data: 'Hello there from the server.js file PART 2!'
-  })
-);
-
 /** Define Routes
  *Users
  */
@@ -27,6 +20,7 @@ app.use('/api/users', require('../routes/api/users'));
 app.use('/api/auth', require('../routes/api/auth'));
 app.use('/api/profile', require('../routes/api/profile'));
 app.use('/api/posts', require('../routes/api/posts'));
+app.use('/api/fed', require('../routes/api/fedregister'));
 
 const PORT = process.env.PORT || 5000;
 
