@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { checkSchema, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const config = require('config');
 const gravatar = require('gravatar');
 
 const User = require('../../models/User');
@@ -93,12 +95,38 @@ router.post(
        */
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
-
       await user.save();
 
-      // Return jsonwebtoken
-
-      res.send('User registered');
+      /** JsonWebToken
+       * 1. jwt.sign()
+       * 2. Protect routes by using middleware -> Use jwt.verify()
+       *
+       * Every new instance of User will have an _id -> But mongoose uses an abstraction so that we can pull the id just using user.id
+       *
+       * We're putting our secret in our global config folder -> This means that we have to require('config')
+       *
+       * We're signing the token, passing in our payload, passing in the secret
+       * * In our callback we either get an error or send the token back to the client
+       * * The token will look like this: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMyMDg5N...
+       *
+       * Expire time for 1 hour -> 3600s
+       *
+       * Callback for possible error | token
+       */
+      const payload = {
+        user: {
+          id: user.id
+        }
+      };
+      jwt.sign(
+        payload,
+        config.get('jwtSecret'),
+        { expiresIn: 360000 },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server Error');

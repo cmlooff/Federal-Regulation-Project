@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://oldmanleroy:brad123@devconnector.yp2jrrl.mongodb.net/?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://oldmanleroy:brad123@devconnector.yp2jrrl.mongodb.net/?retryWrites=true&w=majority",
+  "jwtSecret": "mydirtylittlesecret"
 }
