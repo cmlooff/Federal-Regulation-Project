@@ -49,9 +49,9 @@ module.exports = {
     }
   },
   /** Loaders
-   * test: /\.scss$/ -> regex -> Any files that end with scss will apply these laoders
+   * test: /\.scss$/ -> regex -> Any files that end with scss will apply these loaders
    *
-   * * Babel -> allows for backward compatiability with older browsers
+   * * Babel -> allows for backward compatibility with older browsers
    * We don't want to mess with anything in the node-modules -> exclude /node_modules/
    */
   module: {

@@ -8,6 +8,11 @@ const app = express();
 // Connect Database
 connectDB();
 
+/** Initialize Middleware
+ * If we want the req.body to only be a string, array, or object -> extended false { extended: false }
+ */
+app.use(express.json());
+
 app.get('/api', (req, res) =>
   res.json({
     success: true,
