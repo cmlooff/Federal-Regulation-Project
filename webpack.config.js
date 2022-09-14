@@ -20,12 +20,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '/dist'),
     // Adding in hashing for the name
-    filename: 'bundle.js',
-    /** Clean
-     * If we wanted to add more to our index.js file in src it would create more
-     * dist files -> We want to keep that clean and not overrun our file folder
-     */
-    clean: true
+    filename: 'index_bundle.js'
   },
   /** Dev Server
    * Serving the dist
@@ -36,7 +31,7 @@ module.exports = {
    */
   devServer: {
     static: {
-      directory: path.resolve(__dirname, './src/index.js')
+      directory: path.resolve(__dirname, 'src')
     },
     port: 3000,
     open: true,
@@ -81,7 +76,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack App',
+      title: 'Petitionist',
       filename: 'index.html',
       template: './src/index.html'
     })
