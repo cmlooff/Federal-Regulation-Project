@@ -70,33 +70,43 @@ const ProfileSchema = new mongoose.Schema({
     // Was education -> now petition -> Petition Array of objects
     {
       name: {
-        // Was school -> now name -> Name of petition
         type: String
         // required: true
       },
-      type: {
-        // Was degree -> now type -> Type of Petition -> Add new, Modify current, or Delete Request
+      email: {
         type: String
       },
-      department: {
-        // Was fieldofstudy -> now department -> Department you want to submit to
+      address: {
         type: String
         // required: true
       },
-      regulation: {
-        // Was from -> now regulation -> What's the regulation you want to target
+      interests: {
         type: String
       },
-      sources: {
-        // Was to -> now sources -> Sources that you attached to the petition
+      actionType: {
+        // Users will pick from Commence new rulemaking, Amendment of existing rule, or Deregulation
+        type: String
+        // required: true
+      },
+      actionPurpose: {
+        // What's the purpose of the users' adding/changing/deregulating? Why do they want to add/change/delete?
         type: String
       },
-      // current: {
-      //   type: Boolean,
-      //   default: false
-      // },
-      description: {
+      actionChanges: {
+        // What do you want to change in the existing rule?
         type: String
+      },
+      actionInterest: {
+        // How will this change/addition/deletion benefit the people?
+        type: String
+      },
+      actionSupport: {
+        // Technical documentation, scientific research, or more technical information
+        type: String
+      },
+      date: {
+        type: Date,
+        default: Date.now
       }
     }
   ],

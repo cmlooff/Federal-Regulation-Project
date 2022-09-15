@@ -12,6 +12,9 @@ import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/profile-forms/CreateProfile';
+import EditProfile from './components/profile-forms/EditProfile';
+import AddExperience from './components/profile-forms/AddExperience';
+import AddPetition from './components/profile-forms/AddPetition';
 import PrivateRoute from './components/routing/PrivateRoute';
 
 /** Redux
@@ -38,6 +41,9 @@ const App = () => {
         <Routes>
           <Route exact path='/' element={<Landing />} />
           <Route exact path='/petition' element={<Petition />} />
+          <Route path='/add-petition' element={<PrivateRoute />}>
+            <Route path='' element={<AddPetition />} />
+          </Route>
         </Routes>
         <section className='container'>
           <Alert />
@@ -60,6 +66,26 @@ const App = () => {
                 element={
                   <section className='container'>
                     <CreateProfile />
+                  </section>
+                }
+              />
+            </Route>
+            <Route path='/edit-profile' element={<PrivateRoute />}>
+              <Route
+                path=''
+                element={
+                  <section className='container'>
+                    <EditProfile />
+                  </section>
+                }
+              />
+            </Route>
+            <Route path='/add-experience' element={<PrivateRoute />}>
+              <Route
+                path=''
+                element={
+                  <section className='container'>
+                    <AddExperience />
                   </section>
                 }
               />

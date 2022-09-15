@@ -38,10 +38,10 @@ const AddPetition = ({ addPetition, history }) => {
   return (
     <Fragment>
       <div className='delete page'>
-        <h1 className='large text-danger'>Time to Deregulate!</h1>
+        <h1 className='large text-danger'>Time to Regulate!</h1>
         <p className='lead'>
           <i className='fas fa-eraser'></i> Fill in some easy details to start
-          Deregulating!
+          Regulating!
         </p>
         <form
           className='form'
@@ -49,7 +49,7 @@ const AddPetition = ({ addPetition, history }) => {
             e.preventDefault();
             addPetition(formData);
             // Need to change this to /petition page
-            navigate('/petition');
+            navigate('/dashboard');
           }}
         >
           {/* Regulatory Departments */}
@@ -64,9 +64,7 @@ const AddPetition = ({ addPetition, history }) => {
                 Department of Commerce
               </option>
               <option value='Department of Energy'>Department of Energy</option>
-              <option value='Department of Justice'>
-                Department of Justice
-              </option>
+              <option value='Department of Justice'>Senior Developer</option>
               <option value='Department of Labor'>Department of Labor</option>
               <option value='Department of Transportation'>
                 Department of Transportation
@@ -92,7 +90,10 @@ const AddPetition = ({ addPetition, history }) => {
               value={actionType}
               onChange={(e) => onChange(e)}
             >
-              <option value='Delete'>Delete</option>
+              <option value='0'>* Select Regulation Action</option>
+              <option value='Regulate'>Commence Regulation</option>
+              <option value='Amend'>Amend</option>
+              <option value='Deregulate'>Deregulate</option>
             </select>
             <small className='form-text'>
               You've chosen... wisely <i className='fas fa-mug-hot'></i>
@@ -102,7 +103,7 @@ const AddPetition = ({ addPetition, history }) => {
           {/* ActionPurpose */}
           <div className='form-group'>
             <textarea
-              placeholder='State your purpose for deregulating...'
+              placeholder='State your purpose for amending...'
               name='actionPurpose'
               value={actionPurpose}
               onChange={(e) => onChange(e)}
@@ -115,7 +116,7 @@ const AddPetition = ({ addPetition, history }) => {
           {/* ActionChanges */}
           <div className='form-group'>
             <textarea
-              placeholder='What are you wanting to deregulating?'
+              placeholder='What are you wanting to do?'
               name='actionChanges'
               value={actionChanges}
               onChange={(e) => onChange(e)}
@@ -135,7 +136,7 @@ const AddPetition = ({ addPetition, history }) => {
               onChange={(e) => onChange(e)}
             ></textarea>
             <small className='form-text'>
-              If we deregulate this rule, will it inhibit my need for
+              If we amend this rule, will it inhibit my need for
               chocolate-flavored mugs?
             </small>
           </div>
@@ -154,7 +155,7 @@ const AddPetition = ({ addPetition, history }) => {
           </div>
 
           <input type='submit' className='btn btn-primary my-1' />
-          <Link to='/petition' className='btn btn-primary2'>
+          <Link to='/dashboard' className='btn btn-primary2'>
             Back
           </Link>
         </form>

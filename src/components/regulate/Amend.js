@@ -1,9 +1,11 @@
 import React, { Fragment, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { addPetition } from '../../actions/profile';
 
-const Amend = (props) => {
-  const [petitionData, setPetitionData] = useState({
+const AddPetition = ({ addPetition, history }) => {
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     address: '',
@@ -15,7 +17,7 @@ const Amend = (props) => {
     actionSupport: ''
   });
 
-  // Destructure
+  // const [toDateDisabled, toggleDisabled] = useState(false);
   const {
     name,
     email,
@@ -26,7 +28,12 @@ const Amend = (props) => {
     actionChanges,
     actionInterest,
     actionSupport
-  } = petitionData;
+  } = formData;
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const navigate = useNavigate();
 
   return (
     <Fragment>
@@ -34,18 +41,32 @@ const Amend = (props) => {
         <h1 className='large text-danger'>Time to Amend!</h1>
         <p className='lead'>
           <i className='fas fa-eraser'></i> Fill in some easy details to start
-          Amending
+          Amending!
         </p>
-        <form className='form'>
+        <form
+          className='form'
+          onSubmit={(e) => {
+            e.preventDefault();
+            addPetition(formData);
+            // Need to change this to /petition page
+            navigate('/petition');
+          }}
+        >
           {/* Regulatory Departments */}
           <div className='form-group'>
-            <select name='interests'>
+            <select
+              name='interests'
+              value={interests}
+              onChange={(e) => onChange(e)}
+            >
               <option value='0'>* Select Regulatory Target</option>
               <option value='Department of Commerce'>
                 Department of Commerce
               </option>
               <option value='Department of Energy'>Department of Energy</option>
-              <option value='Department of Justice'>Senior Developer</option>
+              <option value='Department of Justice'>
+                Department of Justice
+              </option>
               <option value='Department of Labor'>Department of Labor</option>
               <option value='Department of Transportation'>
                 Department of Transportation
@@ -66,8 +87,12 @@ const Amend = (props) => {
 
           {/* Regulatory ActionType */}
           <div className='form-group'>
-            <select name='actionType'>
-              <option value='Regulate'>Amend</option>
+            <select
+              name='actionType'
+              value={actionType}
+              onChange={(e) => onChange(e)}
+            >
+              <option value='Amend'>Amend</option>
             </select>
             <small className='form-text'>
               You've chosen... wisely <i className='fas fa-mug-hot'></i>
@@ -79,6 +104,8 @@ const Amend = (props) => {
             <textarea
               placeholder='State your purpose for amending...'
               name='actionPurpose'
+              value={actionPurpose}
+              onChange={(e) => onChange(e)}
             ></textarea>
             <small className='form-text'>
               Keep it short, big brain <i className='fas fa-brain'></i>
@@ -90,6 +117,8 @@ const Amend = (props) => {
             <textarea
               placeholder='What are you wanting to amend?'
               name='actionChanges'
+              value={actionChanges}
+              onChange={(e) => onChange(e)}
             ></textarea>
             <small className='form-text'>
               Will it allow otters to become President?{' '}
@@ -102,6 +131,8 @@ const Amend = (props) => {
             <textarea
               placeholder='How will this affect people?'
               name='actionInterest'
+              value={actionInterest}
+              onChange={(e) => onChange(e)}
             ></textarea>
             <small className='form-text'>
               If we amend this rule, will it inhibit my need for
@@ -114,6 +145,8 @@ const Amend = (props) => {
             <textarea
               placeholder='Time to list your evidence!'
               name='actionSupport'
+              value={actionSupport}
+              onChange={(e) => onChange(e)}
             ></textarea>
             <small className='form-text'>
               Now this is rulemaking! <i className='fas fa-jedi'></i>
@@ -121,15 +154,17 @@ const Amend = (props) => {
           </div>
 
           <input type='submit' className='btn btn-primary my-1' />
-          <a href='/petition' className='btn btn-primary2'>
-            Top of Page
-          </a>
+          <Link to='/petition' className='btn btn-primary2'>
+            Back
+          </Link>
         </form>
       </div>
     </Fragment>
   );
 };
 
-Amend.propTypes = {};
+AddPetition.propTypes = {
+  addPetition: PropTypes.func.isRequired
+};
 
-export default Amend;
+export default connect(null, { addPetition })(AddPetition);

@@ -1,9 +1,11 @@
 import React, { Fragment, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { addPetition } from '../../actions/profile';
 
-const Commence = (props) => {
-  const [petitionData, setPetitionData] = useState({
+const AddPetition = ({ addPetition, history }) => {
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     address: '',
@@ -15,7 +17,7 @@ const Commence = (props) => {
     actionSupport: ''
   });
 
-  // Destructure
+  // const [toDateDisabled, toggleDisabled] = useState(false);
   const {
     name,
     email,
@@ -26,26 +28,45 @@ const Commence = (props) => {
     actionChanges,
     actionInterest,
     actionSupport
-  } = petitionData;
+  } = formData;
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const navigate = useNavigate();
 
   return (
     <Fragment>
       <div className='commence page'>
-        <h1 className='large text-danger'>Time to Regulate!</h1>
+        <h1 className='large text-danger'>Time to Amend!</h1>
         <p className='lead'>
           <i className='fas fa-eraser'></i> Fill in some easy details to start
-          Regulating
+          Amending!
         </p>
-        <form className='form'>
+        <form
+          className='form'
+          onSubmit={(e) => {
+            e.preventDefault();
+            addPetition(formData);
+            // Need to change this to /petition page
+            navigate('/petition');
+          }}
+        >
           {/* Regulatory Departments */}
           <div className='form-group'>
-            <select name='interests'>
+            <select
+              name='interests'
+              value={interests}
+              onChange={(e) => onChange(e)}
+            >
               <option value='0'>* Select Regulatory Target</option>
               <option value='Department of Commerce'>
                 Department of Commerce
               </option>
               <option value='Department of Energy'>Department of Energy</option>
-              <option value='Department of Justice'>Senior Developer</option>
+              <option value='Department of Justice'>
+                Department of Justice
+              </option>
               <option value='Department of Labor'>Department of Labor</option>
               <option value='Department of Transportation'>
                 Department of Transportation
@@ -66,7 +87,11 @@ const Commence = (props) => {
 
           {/* Regulatory ActionType */}
           <div className='form-group'>
-            <select name='actionType'>
+            <select
+              name='actionType'
+              value={actionType}
+              onChange={(e) => onChange(e)}
+            >
               <option value='Regulate'>Regulate</option>
             </select>
             <small className='form-text'>
@@ -79,6 +104,8 @@ const Commence = (props) => {
             <textarea
               placeholder='State your purpose for regulating...'
               name='actionPurpose'
+              value={actionPurpose}
+              onChange={(e) => onChange(e)}
             ></textarea>
             <small className='form-text'>
               Keep it short, big brain <i className='fas fa-brain'></i>
@@ -90,10 +117,12 @@ const Commence = (props) => {
             <textarea
               placeholder='What are you wanting to regulate?'
               name='actionChanges'
+              value={actionChanges}
+              onChange={(e) => onChange(e)}
             ></textarea>
             <small className='form-text'>
-              Do you want to allow cats to become President?{' '}
-              <i className='fas fa-cat'></i> Or just a Vice President?
+              Will it allow otters to become President?{' '}
+              <i className='fas fa-otter'></i> Or just a Chief of Staff?
             </small>
           </div>
 
@@ -102,10 +131,12 @@ const Commence = (props) => {
             <textarea
               placeholder='How will this affect people?'
               name='actionInterest'
+              value={actionInterest}
+              onChange={(e) => onChange(e)}
             ></textarea>
             <small className='form-text'>
-              If we regulate this rule, will it inhibit my need for burgers?{' '}
-              <i className='fas fa-burger'></i>
+              If we regulate this rule, will it inhibit my need for
+              chocolate-flavored mugs?
             </small>
           </div>
 
@@ -114,6 +145,8 @@ const Commence = (props) => {
             <textarea
               placeholder='Time to list your evidence!'
               name='actionSupport'
+              value={actionSupport}
+              onChange={(e) => onChange(e)}
             ></textarea>
             <small className='form-text'>
               Now this is rulemaking! <i className='fas fa-jedi'></i>
@@ -121,15 +154,17 @@ const Commence = (props) => {
           </div>
 
           <input type='submit' className='btn btn-primary my-1' />
-          <a href='/petition' className='btn btn-primary2'>
-            Top of Page
-          </a>
+          <Link to='/' className='btn btn-primary2'>
+            Back
+          </Link>
         </form>
       </div>
     </Fragment>
   );
 };
 
-Commence.propTypes = {};
+AddPetition.propTypes = {
+  addPetition: PropTypes.func.isRequired
+};
 
-export default Commence;
+export default connect(null, { addPetition })(AddPetition);

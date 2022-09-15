@@ -179,15 +179,28 @@ router.delete('/', auth, async (req, res) => {
  * Need validation -> On the front end we're going to be filling this in with a form -> But we're skipping checkSchema for now
  */
 router.put('/petitions', auth, async (req, res) => {
-  const { name, type, department, regulation, sources, description } = req.body;
+  const {
+    name,
+    email,
+    address,
+    interests,
+    actionType,
+    actionPurpose,
+    actionChanges,
+    actionInterest,
+    actionSupport
+  } = req.body;
 
   const newPetition = {
     name,
-    type,
-    department,
-    regulation,
-    sources,
-    description
+    email,
+    address,
+    interests,
+    actionType,
+    actionPurpose,
+    actionChanges,
+    actionInterest,
+    actionSupport
   };
 
   try {

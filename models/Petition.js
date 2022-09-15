@@ -2,23 +2,23 @@ const mongoose = require('mongoose');
 
 const PetitionSchema = new mongoose.Schema({
   name: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   email: {
     type: String
   },
   address: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   interests: {
     type: String
   },
   actionType: {
     // Users will pick from Commence new rulemaking, Amendment of existing rule, or Deregulation
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   actionPurpose: {
     // What's the purpose of the users' adding/changing/deregulating? Why do they want to add/change/delete?

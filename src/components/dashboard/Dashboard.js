@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
+import { DashboardActions } from './DashboardActions';
 import Spinner from '../layout/Spinner';
 
 // This are being passed in as our props -> getCurrentProfile, auth, profiles
@@ -31,7 +32,9 @@ const Dashboard = ({
       </p>
       {/* Check to see if profile is !== null -> A profile exists for the user*/}
       {profile !== null ? (
-        <Fragment>Has Profile</Fragment>
+        <Fragment>
+          <DashboardActions />
+        </Fragment>
       ) : (
         <Fragment>
           <Fragment>

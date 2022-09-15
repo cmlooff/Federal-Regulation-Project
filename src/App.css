@@ -198,7 +198,7 @@ img {
 .btn:hover {
   opacity: 0.9;
   /* background-color: var(--primary-color2); */
-  color: #fff;
+  /* color: #fff; */
 }
 
 .badge {
@@ -426,6 +426,6 @@ text-shadow: 2px 2px 2px #333;
 .delete {
   padding-top: 2rem;
   background: url('./img/calm-tree.png') no-repeat center center/cover;
-  color: var(--danger-color);
+  color: var(--primary-color2);
   text-shadow: 2px 2px 2px #333;
 }

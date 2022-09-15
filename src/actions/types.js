@@ -8,5 +8,10 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const GET_PROFILE = 'GET_PROFILE';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+
+export const GET_REGULATION = 'GET_REGULATION';
+export const REGULATION_ERROR = 'REGULATION_ERROR';
+export const CLEAR_REGULATION = 'CLEAR_REGULATION';

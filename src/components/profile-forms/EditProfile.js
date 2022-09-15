@@ -1,12 +1,18 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // WithRouter allows us to redirect within an action
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // Implementing actions
-import { createProfile } from '../../actions/profile';
+import { createProfile, getCurrentProfile } from '../../actions/profile';
+import profile from '../../reducers/profile';
 
-const CreateProfile = ({ createProfile, history }) => {
+const EditProfile = ({
+  profile: { profile, loading },
+  createProfile,
+  getCurrentProfile,
+  history
+}) => {
   const [formData, setFormData] = useState({
     company: '',
     website: '',
@@ -20,6 +26,18 @@ const CreateProfile = ({ createProfile, history }) => {
     youtube: '',
     instagram: ''
   });
+
+  useEffect(() => {
+    getCurrentProfile();
+    // Set the form data with the current values
+    setFormData({
+      title: loading || !profile.title ? '' : profile.title,
+      interests:
+        loading || !profile.interests ? '' : profile.interests.join(','),
+      bio: loading || !profile.bio ? '' : profile.bio
+    });
+    // The prop that I want to depend on is loading
+  }, [loading]);
 
   // Creating state for our social inputs -> If you want to include then go to 6:36 video 47 MERN Brad Traversy
   // const [displaySocialInputs, toggleSocial] = useState(false);
@@ -45,18 +63,16 @@ const CreateProfile = ({ createProfile, history }) => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    createProfile(formData, history);
-    navigate('/dashboard');
+    createProfile(formData, history, true);
   };
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Create Your Peticient Profile</h1>
+      <h1 className='large text-primary'>Edit Your Peticient Profile</h1>
       <p className='lead'>
-        <i className='fas fa-user'></i> Let's create a profile so you can share
-        your petitions with others!
+        <i className='fas fa-user'></i> Let's edit your profile!
       </p>
       <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
@@ -115,8 +131,8 @@ const CreateProfile = ({ createProfile, history }) => {
             onChange={(e) => onChange(e)}
           />
           <small className='form-text'>
-            Please use comma separated values (eg.
-            Engineer,Lawyer,Designer,Musician)
+            Please use comma separated values (eg. Engineer, Lawyer, Designer,
+            Musician)
           </small>
         </div>
         {/* <div className='form-group'>
@@ -180,9 +196,17 @@ const CreateProfile = ({ createProfile, history }) => {
   );
 };
 
-CreateProfile.propTypes = {
-  createProfile: PropTypes.func.isRequired
+EditProfile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired
 };
 
+const mapStateToProps = (state) => ({
+  profile: state.profile
+});
+
 // Without withRouter we won't be able to redirect with the action
-export default connect(null, { createProfile })(CreateProfile);
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+  EditProfile
+);
