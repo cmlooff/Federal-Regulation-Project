@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
 import { DashboardActions } from './DashboardActions';
+import Experience from './Experience';
+import Petitions from './Petitions';
 import Spinner from '../layout/Spinner';
 
 // This are being passed in as our props -> getCurrentProfile, auth, profiles
@@ -34,6 +36,8 @@ const Dashboard = ({
       {profile !== null ? (
         <Fragment>
           <DashboardActions />
+          {/* <Experience experience={profile.experience} /> */}
+          {/* <Petitions petition={profile.petitions} /> */}
         </Fragment>
       ) : (
         <Fragment>
@@ -45,7 +49,7 @@ const Dashboard = ({
           </Fragment>
           <Fragment>
             <p>You do not have any petitions saved - start petitioning!</p>
-            <Link to='/petition' className='btn btn-primary2 my-1'>
+            <Link to='/add-petition' className='btn btn-primary2 my-1'>
               Create Petition
             </Link>
           </Fragment>

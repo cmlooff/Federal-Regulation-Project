@@ -10,7 +10,7 @@ export const DashboardActions = () => {
       <Link to='/add-experience' className='btn btn-light'>
         <i className='fab fa-black-tie text-primary'></i> Add Experience
       </Link>
-      <Link to='/petition' className='btn btn-light'>
+      <Link to='/add-petition' className='btn btn-light'>
         <i className='fas fa-pen-nib text-primary'></i> Add Petitions
       </Link>
     </div>

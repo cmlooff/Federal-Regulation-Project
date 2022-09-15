@@ -64,7 +64,9 @@ const AddPetition = ({ addPetition, history }) => {
                 Department of Commerce
               </option>
               <option value='Department of Energy'>Department of Energy</option>
-              <option value='Department of Justice'>Senior Developer</option>
+              <option value='Department of Justice'>
+                Department of Justice
+              </option>
               <option value='Department of Labor'>Department of Labor</option>
               <option value='Department of Transportation'>
                 Department of Transportation

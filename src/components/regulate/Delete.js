@@ -154,7 +154,7 @@ const AddPetition = ({ addPetition, history }) => {
           </div>
 
           <input type='submit' className='btn btn-primary my-1' />
-          <Link to='/petition' className='btn btn-primary2'>
+          <Link to='/' className='btn btn-primary2'>
             Back
           </Link>
         </form>
