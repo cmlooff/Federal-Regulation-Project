@@ -145,7 +145,7 @@ router.get('/user/:user_id', async (req, res) => {
   }
 });
 
-/** Profile By UserID
+/** Delete Profile By UserID
  * @Route   DELETE api/profile
  * @desc    Delete Profile, User, and Posts
  * @access  Private
@@ -169,8 +169,74 @@ router.delete('/', auth, async (req, res) => {
   }
 });
 
+/** Add Profile Petitions
+ * @Route   PUT api/profile/petitions
+ * @desc    Add profile petitions
+ * @access  Private
+ *
+ * We want to access the token because we want to access the req.user.id therefore we need to decrypt it
+ *
+ * Need validation -> On the front end we're going to be filling this in with a form -> But we're skipping checkSchema for now
+ */
+router.put('/petitions', auth, async (req, res) => {
+  const { name, type, department, regulation, sources, description } = req.body;
+
+  const newPetition = {
+    name,
+    type,
+    department,
+    regulation,
+    sources,
+    description
+  };
+
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // This is an array and we're going to push using unshift() -> This pushes new items into the array from the beginning instead of appending to the end
+    profile.petitions.unshift(newPetition);
+    await profile.save();
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+/** Delete Profile Petitions
+ * @Route   DELETE api/profile/petitions/:petition_id
+ * @desc    Delete petitions from profile
+ * @access  Private
+ * * NOTE: EACH ARRAY HAS A _ID PROVIDED BY MONGOOSE/MONGODB
+ *
+ * @param removeIndex We are accessing the profile.experience which is an array
+ *  mapping through that array to get a new array with just the item.id
+ *  Then we want to find the experience id we want to delete with the :petition_id
+ */
+router.delete('/petitions/:petition_id', auth, async (req, res) => {
+  try {
+    // Getting user profile with jwt
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // Get removed index
+    const removeIndex = profile.petitions
+      .map((item) => item.id)
+      .indexOf(req.params.petition_id);
+
+    // We now have the index of the id we want to delete in the profile.petitions array -> We splice 1 'element'/array out
+    profile.petitions.splice(removeIndex, 1);
+    await profile.save();
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 /** Add Profile Experiences
- * @Route   PUT api/profile/experience
+ * @Route   PUT api/profile/experiences
  * @desc    Add profile experiences
  * @access  Private
  *
@@ -196,6 +262,37 @@ router.put('/experience', auth, async (req, res) => {
 
     // This is an array and we're going to push using unshift() -> This pushes new items into the array from the beginning instead of appending to the end
     profile.experience.unshift(newExp);
+    await profile.save();
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+/** Delete Profile Experience
+ * @Route   DELETE api/profile/experience/:exp_id
+ * @desc    Delete experience from profile
+ * @access  Private
+ * * NOTE: EACH ARRAY HAS A _ID PROVIDED BY MONGOOSE/MONGODB
+ *
+ * @param removeIndex We are accessing the profile.experience which is an array
+ *  mapping through that array to get a new array with just the item.id
+ *  Then we want to find the experience id we want to delete with the :exp_id
+ */
+router.delete('/experience/:exp_id', auth, async (req, res) => {
+  try {
+    // Getting user profile with jwt
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // Get removed index
+    const removeIndex = profile.experience
+      .map((item) => item.id)
+      .indexOf(req.params.exp_id);
+
+    // We now have the index of the id we want to delete in the profile.experience array -> We splice 1 'element'/array out
+    profile.experience.splice(removeIndex, 1);
     await profile.save();
 
     res.json(profile);

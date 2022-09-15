@@ -5,6 +5,7 @@
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --animate-speed: 1s;
 }
 
 
@@ -20,6 +21,8 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+  height: 100vh;
+  overflow: hidden;
 }
 
 a {
@@ -41,7 +44,7 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-  margin-top: 6rem;
+  margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
@@ -61,6 +64,71 @@ img {
   margin-bottom: 1rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-dark {
+  color: var(--dark-color);
+}
+
+/* Padding */
+.p {
+  padding: 0.5rem;
+}
+.p-1 {
+  padding: 1rem;
+}
+.p-2 {
+  padding: 2rem;
+}
+.p-3 {
+  padding: 3rem;
+}
+.py {
+  padding: 0.5rem 0;
+}
+.py-1 {
+  padding: 1rem 0;
+}
+.py-2 {
+  padding: 2rem 0;
+}
+.py-3 {
+  padding: 3rem 0;
+}
+
+/* Margin */
+.m {
+  margin: 0.5rem;
+}
+.m-1 {
+  margin: 1rem;
+}
+.m-2 {
+  margin: 2rem;
+}
+.m-3 {
+  margin: 3rem;
+}
+.my {
+  margin: 0.5rem 0;
+}
+.my-1 {
+  margin: 1rem 0;
+}
+.my-2 {
+  margin: 2rem 0;
+}
+.my-3 {
+  margin: 3rem 0;
+}
+
+/* Buttons  */
 .btn {
   display: inline-block;
   background-color: var(--light-color);
@@ -75,19 +143,64 @@ img {
   outline: none;
 }
 
-.btn-primary {
+.btn-primary,
+.bg-primary,
+.badge-primary,
+.alert-primary {
   background: var(--primary-color);
   color: #fff;
 }
 
-.btn-light {
+.btn-primary2 {
+  background: var(--primary-color2);
+  color: #fff;
+}
+
+.btn-light,
+.bg-light,
+.badge-light,
+.alert-light {
   background: var(--light-color);
   color: #333;
+  border: 1px solid var(--primary-color2);
 }
+
+.btn-dark,
+.bg-dark,
+.badge-dark,
+.alert-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.btn-danger,
+.bg-danger,
+.badge-danger,
+.alert-danger {
+  background: var(--danger-color);
+  color: #fff;
+}
+
+.btn-success,
+.bg-success,
+.badge-success,
+.alert-success {
+  background: var(--success-color);
+  color: #fff;
+}
+
 
 .btn:hover {
   opacity: 0.9;
-  background-color: var(--primary-color2);
+  /* background-color: var(--primary-color2); */
+  color: #fff;
+}
+
+.alert {
+  padding: 0.8rem;
+  margin: 1rem 0;
+  opacity: 0.9;
+  /* background: var(--light-color); */
   color: #fff;
 }
 
@@ -100,6 +213,35 @@ img {
   width: 100%;
   height: 100%;
 }
+
+/* Forms */
+.form .form-group {
+  margin: 1.2rem 0;
+}
+
+.form .form-text {
+  display: block;
+  margin-top: 0.5rem;
+  color: #888;
+}
+
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'],
+.form select,
+.form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+.form input[type='submit'],
+button {
+  font: inherit;
+}
+
 
 /* Navbar */
 .navbar {
@@ -144,4 +286,83 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+/* Petition Landing Page */
+.petitionContainer {
+  /* position: relative; */
+  width: 100vw;
+  height: 100vh; 
+}
+.petitionSelector {
+  /* position: relative; */
+  width: 100%;
+  height: 100%;
+  background: #333;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.split {
+  /* position: absolute; */
+  width: 33%;
+  height: 100%;
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.split.left {
+  background: url('./img/create.jpg') no-repeat center center/cover;
+  color: var(--success-color);
+  text-shadow: 2px 2px 2px #333;
+}
+
+.split.middle {
+background: url('./img/amend.jpg') no-repeat center center/cover;
+color: var(--primary-color);
+text-shadow: 2px 2px 2px #333;
+}
+
+.split.right {
+  background: url('./img/delete.jpg') no-repeat center center/cover;
+  color: #88292f;
+  text-shadow: 1px 1px 1px #333;
+}
+
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 4rem;
+}
+
+.page h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin: 1rem;
+}
+
+.page p {
+  font-size: 1.3rem;
+}
+
+.commence {
+  background-color: var(--success-color);
+}
+
+.amend {
+  background-color: var(--primary-color);
+}
+
+.delete {
+  background-color: var(--danger-color);
 }

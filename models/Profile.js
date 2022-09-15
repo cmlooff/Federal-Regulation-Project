@@ -66,29 +66,35 @@ const ProfileSchema = new mongoose.Schema({
       }
     }
   ],
-  education: [
+  petitions: [
+    // Was education -> now petition -> Petition Array of objects
     {
-      school: {
+      name: {
+        // Was school -> now name -> Name of petition
         type: String
         // required: true
       },
-      degree: {
+      type: {
+        // Was degree -> now type -> Type of Petition -> Add new, Modify current, or Delete Request
         type: String
       },
-      fieldofstudy: {
+      department: {
+        // Was fieldofstudy -> now department -> Department you want to submit to
         type: String
         // required: true
       },
-      from: {
-        type: Date
+      regulation: {
+        // Was from -> now regulation -> What's the regulation you want to target
+        type: String
       },
-      to: {
-        type: Date
+      sources: {
+        // Was to -> now sources -> Sources that you attached to the petition
+        type: String
       },
-      current: {
-        type: Boolean,
-        default: false
-      },
+      // current: {
+      //   type: Boolean,
+      //   default: false
+      // },
       description: {
         type: String
       }

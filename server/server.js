@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const connectDB = require('../config/db');
 const colors = require('colors');
-
 const app = express();
 
 // Connect Database
