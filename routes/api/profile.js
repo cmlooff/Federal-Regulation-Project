@@ -21,13 +21,13 @@ router.get('/me', auth, async (req, res) => {
       ['name', 'avatar']
     );
     if (!profile) {
-      res.status(400).json({ msg: 'No profile for this user' });
+      return res.status(400).json({ msg: 'No profile for this user' });
     }
 
-    res.json(profile);
+    return res.json(profile);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    return res.status(500);
   }
 });
 
@@ -112,10 +112,10 @@ router.post('/', auth, async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const profiles = await Profile.find().populate('user', ['name', 'avatar']);
-    res.json(profiles);
+    return res.json(profiles);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    return res.status(500).send('Server Error');
   }
 });
 
@@ -134,14 +134,14 @@ router.get('/user/:user_id', async (req, res) => {
       return res.status(400).json({ msg: 'Profile not found' });
     }
 
-    res.json(profile);
+    return res.json(profile);
   } catch (err) {
     console.error(err.message);
     /**
      * What if there's a correct string for UserID but no user is found? It'll just send 'Server Error' -> We can catch that by using the error handler below
      * if (err.kind == 'ObjectId) {return res.status(400).json({ msg: 'Profile Not Found' });}
      */
-    res.status(500).send('Server Error');
+    return res.status(500).send('Server Error');
   }
 });
 
@@ -162,10 +162,10 @@ router.delete('/', auth, async (req, res) => {
     // Remove User
     await User.findOneAndRemove({ _id: req.user.id });
 
-    res.json({ msg: 'User removed' });
+    return res.json({ msg: 'User removed' });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    return res.status(500).send('Server Error');
   }
 });
 
@@ -197,10 +197,10 @@ router.put('/petitions', auth, async (req, res) => {
     profile.petitions.unshift(newPetition);
     await profile.save();
 
-    res.json(profile);
+    return res.json(profile);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    return res.status(500).send('Server Error');
   }
 });
 
@@ -228,10 +228,10 @@ router.delete('/petitions/:petition_id', auth, async (req, res) => {
     profile.petitions.splice(removeIndex, 1);
     await profile.save();
 
-    res.json(profile);
+    return res.json(profile);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    return res.status(500).send('Server Error');
   }
 });
 
@@ -264,10 +264,10 @@ router.put('/experience', auth, async (req, res) => {
     profile.experience.unshift(newExp);
     await profile.save();
 
-    res.json(profile);
+    return res.json(profile);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    return res.status(500).send('Server Error');
   }
 });
 
@@ -295,10 +295,10 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
     profile.experience.splice(removeIndex, 1);
     await profile.save();
 
-    res.json(profile);
+    return res.json(profile);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    return res.status(500).send('Server Error');
   }
 });
 

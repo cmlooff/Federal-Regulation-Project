@@ -12,7 +12,7 @@ const PetitionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  telephone: {
+  interests: {
     type: String
   },
   actionType: {

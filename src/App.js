@@ -11,6 +11,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
+import CreateProfile from './components/profile-forms/CreateProfile';
 import PrivateRoute from './components/routing/PrivateRoute';
 
 /** Redux
@@ -43,9 +44,25 @@ const App = () => {
           <Routes>
             <Route exact path='/register' element={<Register />} />
             <Route exact path='/login' element={<Login />} />
-
             <Route path='/dashboard' element={<PrivateRoute />}>
-              <Route path='' element={<Dashboard />} />
+              <Route
+                path=''
+                element={
+                  <section className='container'>
+                    <Dashboard />
+                  </section>
+                }
+              />
+            </Route>
+            <Route path='/create-profile' element={<PrivateRoute />}>
+              <Route
+                path=''
+                element={
+                  <section className='container'>
+                    <CreateProfile />
+                  </section>
+                }
+              />
             </Route>
           </Routes>
         </section>
