@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 /** Redux notes
  * We can now throw in props after connecting in the bottom
  */
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   /** State Handling
    * Since this is a form, We need component State
    * Each input has it's own state and needs it's own form handler
@@ -71,6 +71,10 @@ const Register = ({ setAlert, register }) => {
     }
   };
 
+  if (isAuthenticated) {
+    return <Navigate to='/dashboard' />;
+  }
+
   return (
     <div className='container'>
       <h1 className='large text-primary'>Sign Up</h1>
@@ -127,8 +131,13 @@ const Register = ({ setAlert, register }) => {
 
 Register.PropTypes = {
   setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
 };
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
 
 /** Actions note
  * Whenever we bring in an action and we want to use it, we have to pass it into connect()
@@ -136,4 +145,4 @@ Register.PropTypes = {
  *
  * This now allows us to use props.setAlert
  */
-export default connect(null, { setAlert, register })(Register);
+export default connect(mapStateToProps, { setAlert, register })(Register);
