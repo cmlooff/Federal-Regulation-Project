@@ -37,7 +37,7 @@ const Dashboard = ({
         <Fragment>
           <DashboardActions />
           {/* <Experience experience={profile.experience} /> */}
-          {/* <Petitions petition={profile.petitions} /> */}
+          <Petitions petition={profile.petitions} />
         </Fragment>
       ) : (
         <Fragment>
