@@ -30,25 +30,25 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/red-lipped-batfish-scad/scratchProject">
+  <a href="https://github.com/cmlooff/Federal-Regulation-Project">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Red-Lipped-Bat-Fish Scratch Project: Hugelkultur</h3>
+  <h3 align="center">Christian Looff Project: The Petitionist</h3>
 
   <p align="center">
-    A user-created market place that supports the permaculture community!
+    Giving easy access for the public to interact with the Regulation Process!
     <br />
-    <a href="https://github.com/red-lipped-batfish-scad/scratchProject"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/cmlooff/Federal-Regulation-Project"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://github.com/orgs/red-lipped-batfish-scad/projects/1/views/1"><strong>Explore the Project Board »</strong></a>
+    <a href="https://github.com/users/cmlooff/projects/1"><strong>Explore the Project Board »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/red-lipped-batfish-scad/scratchProject">View Demo</a>
+    <a href="https://github.com/cmlooff/Federal-Regulation-Project">View Demo</a>
     ·
-    <a href="https://github.com/red-lipped-batfish-scad/scratchProject/issues">Report Bug</a>
+    <a href="https://github.com/cmlooff/Federal-Regulation-Project/issues">Report Bug</a>
     ·
-    <a href="https://github.com/red-lipped-batfish-scad/scratchProject/issues">Request Feature</a>
+    <a href="https://github.com/cmlooff/Federal-Regulation-Project/issues">Request Feature</a>
   </p>
 </div>
 
@@ -85,12 +85,12 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great user generated marketplaces available on GitHub; however, we didn't find one that really suited our needs so we created one for the permaculture community. We want to create a user generated marketplace that'll be the one stop shop for the permaculture community to give suppplies, sell equipment, and ask questions.
+Federal agencies shape the regulatory process, affecting countless aspects of our everyday lives. One of the most important parts of the rulemaking process is the ability of the public to participate. At times, federal agencies fail to develop regulations. A petition for rulemaking is the mechanism by which individuals, public interest groups, and private enterprise can argue in favor of changes or new rules for ensuring the general welfare of the nation
 
 Here's why:
-* Rather than limit the garden to only one use, permaculture gardens employ a variety of uses
-* A permaculture garden provides food and medicinal crops, wildlife habitats, crafting materials, an attractive appearance, and a private, relaxing atmosphere throughout every season
-* Create a garden that's unique to your own state and location! 🌳 🐦
+* Filing a petition for rulemaking is usually a far more complex and detailed process than commenting on a rule. The Petitionist is here to help with that process!
+* Agencies are in no way required to respond to public opinion, but by demonstrating broad support from a large and/or diverse group of people will help strengthen your argument. We're here to create a community to back your petitions!
+* It's time to take the means of regulation back to the power of the people! :ledger: :black_nib:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -194,7 +194,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - [ ] Chinese
     - [ ] Spanish -->
 
-See the [open issues](https://github.com/red-lipped-batfish-scad/scratchProject/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/cmlooff/Federal-Regulation-Project/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -232,13 +232,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Christian Looff - [@cmlooff](https://github.com/cmlooff)
 
-David Cheng - [@DavidZCheng](https://github.com/DavidZCheng)
-
-Anthony Al-Rifai - [@AnthonyAl-Rifai](https://github.com/AnthonyAl-Rifai)
-
-Stephanie Page - [@vividvoltage](https://github.com/vividvoltage)
-
-Project Link: [https://github.com/red-lipped-batfish-scad/scratchProject](https://github.com/red-lipped-batfish-scad)
+Project Link: [https://github.com/cmlooff/Federal-Regulation-Project](https://github.com/cmlooff/Federal-Regulation-Project)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
