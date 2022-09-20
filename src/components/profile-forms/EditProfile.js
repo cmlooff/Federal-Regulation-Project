@@ -39,7 +39,6 @@ const EditProfile = ({
     // The prop that I want to depend on is loading
   }, [loading]);
 
-  // Creating state for our social inputs -> If you want to include then go to 6:36 video 47 MERN Brad Traversy
   // const [displaySocialInputs, toggleSocial] = useState(false);
 
   // Destructure
