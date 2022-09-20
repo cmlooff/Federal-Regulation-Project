@@ -266,7 +266,7 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/cmlooff/Federal-Regulation-Project.svg?style=for-the-badge
 [contributors-url]: https://github.com/cmlooff/Federal-Regulation-Project/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forkscmlooff/Federal-Regulation-Project.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/cmlooff/Federal-Regulation-Project.svg?style=for-the-badge
 [forks-url]: https://github.com/cmlooff/Federal-Regulation-Project/network/members
 [stars-shield]: https://img.shields.io/github/stars/cmlooff/Federal-Regulation-Project.svg?style=for-the-badge
 [stars-url]: https://github.com/cmlooff/Federal-Regulation-Project/stargazers
