@@ -1,7 +1,7 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
 <a name="readme-top"></a>
 <!--
-*** Thanks for checking out the Red-Lipped-Batfish Scratch Project. If you have a suggestion
+*** Thanks for checking out the Federal-Regulation Project. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
 *** or simply open an issue with the tag "enhancement".
 *** Don't forget to give the project a star!
@@ -100,8 +100,11 @@ Here's why:
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![PostgreSQL][ElephantSQL]][ElephantSQL-url]
+* [![MongoDB][MongoDB]][MongoDB-url]
 * [![React][React.js]][React-url]
+* [![Redux][Redux]][Redux-url]
+* [![React-Router][React-Router]][React-Router-url]
+* [![JWT][JWT]][JWT-url]
 * [![Webpack][Webpack]][Webpack-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -261,16 +264,16 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/red-lipped-batfish-scad/scratchProject.svg?style=for-the-badge
-[contributors-url]: https://github.com/red-lipped-batfish-scad/scratchProject/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/red-lipped-batfish-scad/scratchProject.svg?style=for-the-badge
-[forks-url]: https://github.com/red-lipped-batfish-scad/scratchProject/network/members
-[stars-shield]: https://img.shields.io/github/stars/red-lipped-batfish-scad/scratchProject.svg?style=for-the-badge
-[stars-url]: https://github.com/red-lipped-batfish-scad/scratchProject/stargazers
-[issues-shield]: https://img.shields.io/github/issues/red-lipped-batfish-scad/scratchProject.svg?style=for-the-badge
-[issues-url]: https://github.com/red-lipped-batfish-scad/scratchProject/issues
-[license-shield]: https://img.shields.io/github/license/red-lipped-batfish-scad/scratchProject.svg?style=for-the-badge
-[license-url]: https://github.com/red-lipped-batfish-scad/scratchProject/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/cmlooff/Federal-Regulation-Project.svg?style=for-the-badge
+[contributors-url]: https://github.com/cmlooff/Federal-Regulation-Project/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forkscmlooff/Federal-Regulation-Project.svg?style=for-the-badge
+[forks-url]: https://github.com/cmlooff/Federal-Regulation-Project/network/members
+[stars-shield]: https://img.shields.io/github/stars/cmlooff/Federal-Regulation-Project.svg?style=for-the-badge
+[stars-url]: https://github.com/cmlooff/Federal-Regulation-Project/stargazers
+[issues-shield]: https://img.shields.io/github/issues/cmlooff/Federal-Regulation-Project.svg?style=for-the-badge
+[issues-url]: https://github.com/cmlooff/Federal-Regulation-Project/issues
+[license-shield]: https://img.shields.io/github/license/cmlooff/Federal-Regulation-Project.svg?style=for-the-badge
+[license-url]: https://github.com/cmlooff/Federal-Regulation-Project/blob/master/LICENSE.txt
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/christian-looff/
@@ -292,6 +295,12 @@ Use this space to list resources you find helpful and would like to give credit 
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+[Redux]: https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white
+[Redux-url]: https://redux.js.org/
+[JWT]: https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white
+[JWT-url]: https://jwt.io/
+[React-Router]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
+[React-Router-url]: https://reactrouter.com/en/main
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
