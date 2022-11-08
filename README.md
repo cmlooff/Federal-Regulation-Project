@@ -85,7 +85,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Federal agencies shape the regulatory process, affecting countless aspects of our everyday lives. One of the most important parts of the rulemaking process is the ability of the public to participate. At times, federal agencies fail to develop regulations. A petition for rulemaking is the mechanism by which individuals, public interest groups, and private enterprise can argue in favor of changes or new rules for ensuring the general welfare of the nation
+Federal agencies shape the regulatory process, affecting countless aspects of our everyday lives. One of the most important parts of the rulemaking process is the ability of the public to participate. At times, federal agencies fail to develop regulations. A petition for rulemaking is the mechanism by which individuals, public interest groups, and private enterprise can argue in favor of changes or new rules for ensuring the general welfare of the nation.
 
 Here's why:
 * Filing a petition for rulemaking is usually a far more complex and detailed process than commenting on a rule. The Petitionist is here to help with that process!
